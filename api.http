@@ -1,0 +1,28 @@
+//get all books from array
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+### 
+
+//create a book from array
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "HARRY POTTER"
+}
+
+###
+
+//update a book array by id
+PUT http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "new title"
+}
+
+###
+//delete a book from array by id
+DELETE http://localhost:3001/books/1 HTTP/1.1
+Content-Type: application/json
