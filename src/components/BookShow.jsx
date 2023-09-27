@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 import BookEdit from "./BookEdit";
 
-const BookShow = ({ book, onDelete, onEdit }) => {
+const BookShow = ({ book }) => {
   const [showEdit, setShowEdit] = useState();
+
+  const { deleteBookById } = useContext(BooksContext);
 
   const handleEditClick = () => {
     //toggle the show edit boolean value:
@@ -10,12 +13,11 @@ const BookShow = ({ book, onDelete, onEdit }) => {
   };
 
   const handleDeleteClick = () => {
-    onDelete(book.id);
+    deleteBookById(book.id);
   };
 
-  const handleSubmit = (id, newTitle) => {
+  const handleSubmit = () => {
     setShowEdit(false);
-    onEdit(id, newTitle);
   };
 
   //logic to show edit content:
